@@ -1,0 +1,5 @@
+src/cache/
+*.o
+*.exe
+main
+.vscode/
