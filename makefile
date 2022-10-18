@@ -1,22 +1,11 @@
-TARGET=main
-CC=g++
-DEBUG=-g
-OPT=-O0
-WARN=-Wall
-PTHREAD=-pthread
-CCFLAGS=$(DEBUG) $(OPT) $(WARN) $(PTHREAD) -pipe
-LD=g++
-LDFLAGS=$(PTHREAD) -export-dynamic
-NAME=main
-OBJS=src/$(NAME).o
-all: $(OBJS)
-	$(LD) -o $(TARGET) $(OBJS) $(LDFLAGS)
+LIBS  = -lm
+CFLAGS = -Wall
 
-main.o: src/main.cpp
-	$(CC) -c $(CCFLAGS) src/main.cpp -o src/main.o
+# Should be equivalent to your list of C files, if you don't build selectively
+SRC=$(wildcard src/*.c)
+
+Programa: $(SRC)
+	gcc -o $@ $^ $(CFLAGS) $(LIBS)
 
 clean:
-	rm -f src/*.o
-
-exec:
-	./$(NAME)
+	rm Programa

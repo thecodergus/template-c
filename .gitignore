@@ -1,5 +1,6 @@
 src/cache/
-*.o
-*.exe
+**/*.o
+**/*.exe
 main
 .vscode/
+Programa
